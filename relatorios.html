@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - SGI</title>
+    <meta name="description" content="Relatórios do Sistema de Gestão de Incidentes">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Sidebar de navegação -->
+    <nav class="sidebar">
+        <!-- Header da sidebar -->
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="sidebar-logo">SGI</a>
+            <p class="text-sm text-secondary mt-sm">Sistema de Gestão de Incidentes</p>
+        </div>
+
+        <!-- Menu de navegação -->
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-item">
+                <a href="dashboard.html" class="sidebar-nav-link">
+                    📊 Dashboard
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="incidentes.html" class="sidebar-nav-link">
+                    🐛 Incidentes
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="relatorios.html" class="sidebar-nav-link active">
+                    📈 Relatórios
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="novo-incidente.html" class="sidebar-nav-link">
+                    ➕ Novo Incidente
+                </a>
+            </li>
+        </ul>
+
+        <!-- Informações do utilizador -->
+        <div class="mt-2xl pt-lg border-t border-gray-200">
+            <div class="flex items-center gap-md">
+                <div class="user-avatar">JS</div>
+                <div>
+                    <p class="text-sm font-medium">João Silva</p>
+                    <p class="text-xs text-secondary">Desenvolvimento</p>
+                </div>
+            </div>
+            <a href="login.html" class="btn btn-secondary w-full mt-md text-sm">
+                Sair
+            </a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+        <!-- Header da página -->
+        <div class="dashboard-header">
+            <div>
+                <h1 class="dashboard-title">Relatórios</h1>
+                <p class="text-secondary">Análise detalhada dos incidentes e métricas do sistema</p>
+            </div>
+            <div class="flex gap-md">
+                <button class="btn btn-secondary">📊 Exportar Dashboard</button>
+                <button class="btn btn-primary">📋 Gerar Relatório Completo</button>
+            </div>
+        </div>
+
+        <!-- Filtros de relatório -->
+        <div class="filters-container">
+            <h3 class="text-lg font-semibold mb-md">Filtros do Relatório</h3>
+            <div class="filters-grid">
+                <div class="form-group">
+                    <label for="dateRange" class="form-label">Período</label>
+                    <select id="dateRange" class="form-select">
+                        <option value="7">Últimos 7 dias</option>
+                        <option value="30" selected>Últimos 30 dias</option>
+                        <option value="90">Últimos 3 meses</option>
+                        <option value="365">Último ano</option>
+                        <option value="custom">Personalizado</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportCategory" class="form-label">Categoria</label>
+                    <select id="reportCategory" class="form-select">
+                        <option value="">Todas</option>
+                        <option value="frontend">Frontend</option>
+                        <option value="backend">Backend</option>
+                        <option value="database">Banco de Dados</option>
+                        <option value="devops">DevOps</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportAssignee" class="form-label">Responsável</label>
+                    <select id="reportAssignee" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="joao">João Silva</option>
+                        <option value="ana">Ana Costa</option>
+                        <option value="carlos">Carlos Mendes</option>
+                        <option value="maria">Maria Santos</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportType" class="form-label">Tipo de Relatório</label>
+                    <select id="reportType" class="form-select">
+                        <option value="summary">Resumo Executivo</option>
+                        <option value="detailed">Detalhado</option>
+                        <option value="performance">Performance</option>
+                        <option value="trends">Tendências</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="flex justify-end gap-md mt-md">
+                <button class="btn btn-secondary">Limpar Filtros</button>
+                <button class="btn btn-primary">Aplicar Filtros</button>
+            </div>
+        </div>
+
+        <!-- Resumo executivo -->
+        <div class="card mb-2xl">
+            <div class="card-header">
+                <h3 class="card-title">Resumo Executivo</h3>
+                <p class="card-subtitle">Período: 12/10/2025 a 12/11/2025</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-lg">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600 mb-sm">247</div>
+                    <div class="text-sm text-secondary">Total Incidentes</div>
+                    <div class="text-xs text-green-600 mt-xs">↗ +12% vs mês anterior</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-red-600 mb-sm">42</div>
+                    <div class="text-sm text-secondary">Abertos</div>
+                    <div class="text-xs text-red-600 mt-xs">↗ +8 vs mês anterior</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-yellow-600 mb-sm">18</div>
+                    <div class="text-sm text-secondary">Em Progresso</div>
+                    <div class="text-xs text-green-600 mt-xs">↘ -5 vs mês anterior</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-600 mb-sm">187</div>
+                    <div class="text-sm text-secondary">Fechados</div>
+                    <div class="text-xs text-green-600 mt-xs">↗ +15 vs mês anterior</div>
+                </div>
+            </div>
+
+            <div class="mt-lg pt-lg border-t border-gray-200">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+                    <div>
+                        <h4 class="font-semibold mb-sm">Taxa de Resolução</h4>
+                        <div class="text-2xl font-bold text-green-600">75.7%</div>
+                        <div class="text-sm text-secondary">Média de resolução: 3.2 dias</div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-sm">Prioridade Média</h4>
+                        <div class="text-2xl font-bold text-yellow-600">Média</div>
+                        <div class="text-sm text-secondary">64% dos incidentes</div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-sm">Satisfação</h4>
+                        <div class="text-2xl font-bold text-blue-600">4.2/5</div>
+                        <div class="text-sm text-secondary">Baseada em 89 avaliações</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gráficos e análises -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg mb-2xl">
+            <!-- Incidentes por categoria -->
+            <div class="chart-container">
+                <div class="flex justify-between items-center mb-md">
+                    <h3 class="chart-title">Incidentes por Categoria</h3>
+                    <button class="btn btn-secondary btn-sm">Exportar</button>
+                </div>
+                <div class="chart-bars">
+                    <div class="chart-bar" style="height: 120px; background-color: #6366f1;">
+                        <div class="text-xs mt-1 text-center text-white">Frontend<br>89</div>
+                    </div>
+                    <div class="chart-bar" style="height: 150px; background-color: #8b5cf6;">
+                        <div class="text-xs mt-1 text-center text-white">Backend<br>112</div>
+                    </div>
+                    <div class="chart-bar" style="height: 80px; background-color: #ec4899;">
+                        <div class="text-xs mt-1 text-center text-white">Database<br>34</div>
+                    </div>
+                    <div class="chart-bar" style="height: 60px; background-color: #f59e0b;">
+                        <div class="text-xs mt-1 text-center text-white">DevOps<br>12</div>
+                    </div>
+                </div>
+                <div class="mt-md text-xs text-secondary">
+                    <p>Backend representa 45.3% do total de incidentes</p>
+                </div>
+            </div>
+
+            <!-- Tempo de resolução -->
+            <div class="chart-container">
+                <div class="flex justify-between items-center mb-md">
+                    <h3 class="chart-title">Tempo Médio de Resolução</h3>
+                    <button class="btn btn-secondary btn-sm">Exportar</button>
+                </div>
+                <div class="chart-bars">
+                    <div class="chart-bar" style="height: 60px; background-color: #10b981;">
+                        <div class="text-xs mt-1 text-center text-white">&lt; 1 dia</div>
+                    </div>
+                    <div class="chart-bar" style="height: 100px; background-color: #f59e0b;">
+                        <div class="text-xs mt-1 text-center text-white">1-3 dias</div>
+                    </div>
+                    <div class="chart-bar" style="height: 80px; background-color: #ef4444;">
+                        <div class="text-xs mt-1 text-center text-white">3-7 dias</div>
+                    </div>
+                    <div class="chart-bar" style="height: 40px; background-color: #dc2626;">
+                        <div class="text-xs mt-1 text-center text-white">&gt; 7 dias</div>
+                    </div>
+                </div>
+                <div class="mt-md text-xs text-secondary">
+                    <p>68% dos incidentes resolvidos em menos de 3 dias</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela de incidentes críticos -->
+        <div class="card mb-2xl">
+            <div class="card-header">
+                <h3 class="card-title">Top 10 Incidentes Críticos</h3>
+                <p class="card-subtitle">Incidentes de alta prioridade do período</p>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Categoria</th>
+                        <th>Prioridade</th>
+                        <th>Status</th>
+                        <th>Responsável</th>
+                        <th>Dias Aberto</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#247</td>
+                        <td>Erro ao carregar dashboard</td>
+                        <td>Frontend</td>
+                        <td><span class="badge badge-high">Alta</span></td>
+                        <td><span class="badge badge-open">Aberto</span></td>
+                        <td>Ana Costa</td>
+                        <td>1</td>
+                        <td><a href="detalhe-incidente.html?id=247" class="btn btn-secondary btn-sm">Ver</a></td>
+                    </tr>
+                    <tr>
+                        <td>#241</td>
+                        <td>Performance lenta em consultas SQL</td>
+                        <td>Banco Dados</td>
+                        <td><span class="badge badge-high">Alta</span></td>
+                        <td><span class="badge badge-progress">Em Progresso</span></td>
+                        <td>André Silva</td>
+                        <td>6</td>
+                        <td><a href="detalhe-incidente.html?id=241" class="btn btn-secondary btn-sm">Ver</a></td>
+                    </tr>
+                    <tr>
+                        <td>#238</td>
+                        <td>Sistema de autenticação offline</td>
+                        <td>Backend</td>
+                        <td><span class="badge badge-high">Alta</span></td>
+                        <td><span class="badge badge-closed">Fechado</span></td>
+                        <td>Carlos Mendes</td>
+                        <td>-</td>
+                        <td><a href="detalhe-incidente.html?id=238" class="btn btn-secondary btn-sm">Ver</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Estatísticas por responsável -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg mb-2xl">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Performance por Responsável</h3>
+                    <p class="card-subtitle">Top 5 responsáveis por resolução</p>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Responsável</th>
+                            <th>Resolvidos</th>
+                            <th>Tempo Médio</th>
+                            <th>Avaliação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ana Costa</td>
+                            <td>34</td>
+                            <td>2.1 dias</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Mendes</td>
+                            <td>28</td>
+                            <td>2.8 dias</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>25</td>
+                            <td>3.2 dias</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>Maria Santos</td>
+                            <td>22</td>
+                            <td>3.5 dias</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>Pedro Sousa</td>
+                            <td>18</td>
+                            <td>4.1 dias</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Tendências Mensais</h3>
+                    <p class="card-subtitle">Evolução dos incidentes nos últimos 6 meses</p>
+                </div>
+                <div class="space-y-md">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm">Mai/2025</span>
+                        <div class="flex items-center gap-sm">
+                            <div class="w-20 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                            <span class="text-sm font-medium">156</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm">Jun/2025</span>
+                        <div class="flex items-center gap-sm">
+                            <div class="w-20 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                            <span class="text-sm font-medium">189</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm">Jul/2025</span>
+                        <div class="flex items-center gap-sm">
+                            <div class="w-20 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                            <span class="text-sm font-medium">176</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm">Ago/2025</span>
+                        <div class="flex items-center gap-sm">
+                            <div class="w-20 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                            <span class="text-sm font-medium">203</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm">Set/2025</span>
+                        <div class="flex items-center gap-sm">
+                            <div class="w-20 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <span class="text-sm font-medium">228</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm font-medium">Out/2025</span>
+                        <div class="flex items-center gap-sm">
+                            <div class="w-20 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                            <span class="text-sm font-medium">247</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ações de exportação -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Exportar Relatórios</h3>
+                <p class="card-subtitle">Gerar relatórios em diferentes formatos</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-md">
+                <button class="btn btn-primary w-full">
+                    📊 Exportar Excel
+                </button>
+                <button class="btn btn-secondary w-full">
+                    📄 Gerar PDF
+                </button>
+                <button class="btn btn-secondary w-full">
+                    📈 Gráficos PNG
+                </button>
+                <button class="btn btn-secondary w-full">
+                    📧 Enviar por Email
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Adicionar funcionalidade aos filtros
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            alert('Relatório gerado com sucesso! Verifique sua caixa de download.');
+        });
+
+        // Exportar Excel
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            alert('Exportando relatório para Excel...');
+        });
+
+        // Outros botões de exportação
+        document.querySelectorAll('.btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const text = this.textContent.trim();
+                alert(`Funcionalidade de ${text} em desenvolvimento...`);
+            });
+        });
+    </script>
+</body>
+</html>

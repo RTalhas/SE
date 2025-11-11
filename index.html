@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGI - Sistema de Gestão de Incidentes</title>
+    <meta http-equiv="refresh" content="0; url=login.html">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .loading {
+            text-align: center;
+            color: #1e3a8a;
+        }
+        .spinner {
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #1e3a8a;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="spinner"></div>
+        <h2>SGI - Sistema de Gestão de Incidentes</h2>
+        <p>Redirecionando para o login...</p>
+        <p><a href="login.html" style="color: #1e3a8a;">Clique aqui se não for redirecionado automaticamente</a></p>
+    </div>
+</body>
+</html>

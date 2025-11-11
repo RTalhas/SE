@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Incidente - SGI</title>
+    <meta name="description" content="Criar novo incidente no Sistema de Gestão de Incidentes">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Sidebar de navegação -->
+    <nav class="sidebar">
+        <!-- Header da sidebar -->
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="sidebar-logo">SGI</a>
+            <p class="text-sm text-secondary mt-sm">Sistema de Gestão de Incidentes</p>
+        </div>
+
+        <!-- Menu de navegação -->
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-item">
+                <a href="dashboard.html" class="sidebar-nav-link">
+                    📊 Dashboard
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="incidentes.html" class="sidebar-nav-link">
+                    🐛 Incidentes
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="relatorios.html" class="sidebar-nav-link">
+                    📈 Relatórios
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="novo-incidente.html" class="sidebar-nav-link active">
+                    ➕ Novo Incidente
+                </a>
+            </li>
+        </ul>
+
+        <!-- Informações do utilizador -->
+        <div class="mt-2xl pt-lg border-t border-gray-200">
+            <div class="flex items-center gap-md">
+                <div class="user-avatar">JS</div>
+                <div>
+                    <p class="text-sm font-medium">João Silva</p>
+                    <p class="text-xs text-secondary">Desenvolvimento</p>
+                </div>
+            </div>
+            <a href="login.html" class="btn btn-secondary w-full mt-md text-sm">
+                Sair
+            </a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+        <!-- Header da página -->
+        <div class="dashboard-header">
+            <div>
+                <nav class="text-sm text-secondary mb-sm">
+                    <a href="dashboard.html" class="hover:underline">Dashboard</a>
+                    <span class="mx-sm">/</span>
+                    <a href="incidentes.html" class="hover:underline">Incidentes</a>
+                    <span class="mx-sm">/</span>
+                    <span>Criar Incidente</span>
+                </nav>
+                <h1 class="dashboard-title">Criar Novo Incidente</h1>
+                <p class="text-secondary">Reportar um novo problema ou melhoria no sistema</p>
+            </div>
+        </div>
+
+        <!-- Formulário de criação de incidente -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Informações do Incidente</h3>
+                <p class="card-subtitle">Preencha todos os campos obrigatórios (*)</p>
+            </div>
+
+            <form id="incidentForm" class="space-y-lg">
+                <!-- Linha 1: Título e Categoria -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+                    <div class="form-group">
+                        <label for="title" class="form-label">
+                            Título <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="title" name="title" class="form-input" 
+                               placeholder="Ex: Erro ao carregar dashboard" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category" class="form-label">
+                            Categoria <span class="text-red-500">*</span>
+                        </label>
+                        <select id="category" name="category" class="form-select" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="frontend">Frontend</option>
+                            <option value="backend">Backend</option>
+                            <option value="database">Banco de Dados</option>
+                            <option value="devops">DevOps</option>
+                            <option value="security">Segurança</option>
+                            <option value="performance">Performance</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Linha 2: Prioridade, Tipo e Responsável -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+                    <div class="form-group">
+                        <label for="priority" class="form-label">
+                            Prioridade <span class="text-red-500">*</span>
+                        </label>
+                        <select id="priority" name="priority" class="form-select" required>
+                            <option value="">Selecione a prioridade</option>
+                            <option value="low">Baixa</option>
+                            <option value="medium">Média</option>
+                            <option value="high">Alta</option>
+                            <option value="critical">Crítica</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="type" class="form-label">
+                            Tipo <span class="text-red-500">*</span>
+                        </label>
+                        <select id="type" name="type" class="form-select" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="bug">Bug</option>
+                            <option value="feature">Nova Funcionalidade</option>
+                            <option value="improvement">Melhoria</option>
+                            <option value="task">Tarefa</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="assignee" class="form-label">
+                            Responsável <span class="text-red-500">*</span>
+                        </label>
+                        <select id="assignee" name="assignee" class="form-select" required>
+                            <option value="">Selecione o responsável</option>
+                            <option value="joao">João Silva</option>
+                            <option value="ana">Ana Costa</option>
+                            <option value="carlos">Carlos Mendes</option>
+                            <option value="maria">Maria Santos</option>
+                            <option value="pedro">Pedro Sousa</option>
+                            <option value="luisa">Luisa Oliveira</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Linha 3: Descrição -->
+                <div class="form-group">
+                    <label for="description" class="form-label">
+                        Descrição <span class="text-red-500">*</span>
+                    </label>
+                    <textarea id="description" name="description" class="form-textarea" 
+                              placeholder="Descreva detalhadamente o problema, incluindo:
+• O que está acontecendo
+• Passos para reproduzir
+• Comportamento esperado vs atual
+• Qualquer informação adicional relevante" 
+                              required></textarea>
+                </div>
+
+                <!-- Linha 4: Passos para reproduzir -->
+                <div class="form-group">
+                    <label for="steps" class="form-label">Passos para Reproduzir</label>
+                    <textarea id="steps" name="steps" class="form-textarea" 
+                              placeholder="Liste os passos necessários para reproduzir o problema:
+1. 
+2. 
+3. 
+..."></textarea>
+                </div>
+
+                <!-- Linha 5: Comportamento esperado -->
+                <div class="form-group">
+                    <label for="expected" class="form-label">Comportamento Esperado</label>
+                    <textarea id="expected" name="expected" class="form-textarea" 
+                              placeholder="Descreva qual deveria ser o comportamento correto do sistema"></textarea>
+                </div>
+
+                <!-- Linha 6: Data limite e tags -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+                    <div class="form-group">
+                        <label for="dueDate" class="form-label">Data Limite</label>
+                        <input type="date" id="dueDate" name="dueDate" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tags" class="form-label">Tags</label>
+                        <input type="text" id="tags" name="tags" class="form-input" 
+                               placeholder="Ex: dashboard, api, urgente (separadas por vírgula)">
+                    </div>
+                </div>
+
+                <!-- Anexos -->
+                <div class="form-group">
+                    <label class="form-label">Anexos</label>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-lg text-center">
+                        <div class="text-gray-500">
+                            <p class="mb-sm">📎 Arraste arquivos aqui ou</p>
+                            <button type="button" class="btn btn-secondary">Escolher Arquivos</button>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-sm">
+                            Formatos aceitos: PNG, JPG, PDF, TXT (máx. 10MB)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Divisor -->
+                <div class="border-t border-gray-200 pt-lg">
+                    <h4 class="font-semibold mb-md">Configurações Adicionais</h4>
+                </div>
+
+                <!-- Configurações -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+                    <div class="form-group">
+                        <label class="form-label">Notificações</label>
+                        <div class="space-y-sm">
+                            <label class="flex items-center gap-sm">
+                                <input type="checkbox" name="notifyAssignee" value="1" checked>
+                                <span class="text-sm">Notificar responsável por email</span>
+                            </label>
+                            <label class="flex items-center gap-sm">
+                                <input type="checkbox" name="notifyTeam" value="1">
+                                <span class="text-sm">Notificar toda a equipa</span>
+                            </label>
+                            <label class="flex items-center gap-sm">
+                                <input type="checkbox" name="subscribeMe" value="1" checked>
+                                <span class="text-sm">Subscrever para receber atualizações</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Visibilidade</label>
+                        <div class="space-y-sm">
+                            <label class="flex items-center gap-sm">
+                                <input type="radio" name="visibility" value="public" checked>
+                                <span class="text-sm">Público - todos podem ver</span>
+                            </label>
+                            <label class="flex items-center gap-sm">
+                                <input type="radio" name="visibility" value="team">
+                                <span class="text-sm">Equipa - apenas membros da equipa</span>
+                            </label>
+                            <label class="flex items-center gap-sm">
+                                <input type="radio" name="visibility" value="private">
+                                <span class="text-sm">Privado - apenas responsáveis</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botões de ação -->
+                <div class="flex justify-end gap-md pt-lg border-t border-gray-200">
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='incidentes.html'">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn btn-secondary">
+                        Guardar Rascunho
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Criar Incidente
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Handler do formulário
+        document.getElementById('incidentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar formulário
+            const requiredFields = ['title', 'category', 'priority', 'type', 'assignee', 'description'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                const element = document.getElementById(field);
+                if (!element.value.trim()) {
+                    element.style.borderColor = '#ef4444';
+                    isValid = false;
+                } else {
+                    element.style.borderColor = '#e2e8f0';
+                }
+            });
+            
+            if (!isValid) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            // Simular criação do incidente
+            alert('Incidente criado com sucesso! Redirecionando para a lista de incidentes...');
+            window.location.href = 'incidentes.html';
+        });
+
+        // Definir data mínima como hoje
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('dueDate').setAttribute('min', today);
+    </script>
+</body>
+</html>
