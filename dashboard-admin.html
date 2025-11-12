@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Administrador</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-required-role="admin">
+    <div class="container">
+        <header class="dashboard-header">
+            <div>
+                <h1 class="dashboard-title">Dashboard do Administrador</h1>
+                <p class="login-subtitle">Configurar acessos, regras e equipas.</p>
+            </div>
+            <div class="user-menu">
+                <div>
+                    <span class="badge" id="headerUserRole">--</span>
+                    <span id="headerUserEmail" class="login-subtitle"></span>
+                </div>
+                <button type="button" class="btn btn-secondary" id="logoutBtn">Terminar sessao</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Area reservada ao administrador</h2>
+                    <p class="card-subtitle">Ferramentas para auditar, configurar regras e gerir equipas.</p>
+                </div>
+                <p>Use esta pagina para controlar o acesso ao SGI, definir roles e consultar utilizadores ativos.</p>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Gestao de contas</h2>
+                    <p class="card-subtitle">Crie credenciais temporarias e atribua o role correto aos novos utilizadores.</p>
+                </div>
+                <form class="form-container" id="createUserForm" autocomplete="off">
+                    <div class="form-group">
+                        <label for="newUserEmail" class="form-label">Email institucional</label>
+                        <input
+                            id="newUserEmail"
+                            type="email"
+                            class="form-input"
+                            autocomplete="off"
+                            placeholder="nome@ubi.pt"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserName" class="form-label">Nome completo</label>
+                        <input
+                            id="newUserName"
+                            type="text"
+                            class="form-input"
+                            placeholder="Nome e apelido"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserRole" class="form-label">Role</label>
+                        <select id="newUserRole" class="form-select" required>
+                            <option value="user">Utilizador</option>
+                            <option value="technician">Tecnico</option>
+                            <option value="manager">Gestor</option>
+                            <option value="admin">Administrador</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Criar conta</button>
+                    </div>
+                    <p id="createUserMessage" class="login-subtitle" role="status" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Utilizadores registados</h2>
+                    <p class="card-subtitle">Listagem em tempo real vinda da colecao <code>users</code>.</p>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Nome</th>
+                                <th>Role</th>
+                                <th>Ultimo acesso</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <tr>
+                                <td colspan="5">A carregar utilizadores...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/guard.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Utilizador</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-required-role="user">
+    <div class="container">
+        <header class="dashboard-header">
+            <div>
+                <h1 class="dashboard-title">Dashboard do Utilizador</h1>
+                <p class="login-subtitle">Acompanhe os incidentes que submeteu.</p>
+            </div>
+            <div class="user-menu">
+                <div>
+                    <span class="badge" id="headerUserRole">--</span>
+                    <span id="headerUserEmail" class="login-subtitle"></span>
+                </div>
+                <button type="button" class="btn btn-secondary" id="logoutBtn">Terminar sessão</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Area reservada ao utilizador</h2>
+                    <p class="card-subtitle">Placeholder para dados especificos do perfil user.</p>
+                </div>
+                <p>Substitua este bloco pelos componentes do seu dashboard quando o backend estiver pronto.</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/guard.js"></script>
+</body>
+</html>
+
+
